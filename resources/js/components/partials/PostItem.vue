@@ -1,8 +1,8 @@
 <template>
   <article>
     <h3>{{post.title}}</h3>
-    <p class="data">{{post.created_id}}</p>
-    <p class="text">{{post.content}}</p>
+    <p class="data">{{formatData}}</p>
+    <p class="text">{{troncateTex}}</p>
   </article>
 </template>
 
@@ -14,10 +14,10 @@
     },
     computed:{
       troncateTex(){
-        return post.content.substr(0, 50) + '...';
+        return this.post.content.substr(0, 50) + '...';
       },
       formatData(){
-        const d = new Data(this.post.created_id);
+        const d = new Date(this.post.created_at);
         let day = d.getDate();
         let month = d.getMonth() +1;
         const year = d.getFullYear();

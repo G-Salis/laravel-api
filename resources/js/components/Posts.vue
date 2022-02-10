@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <main>
     <h1>I Miei Post</h1>
     <PostItem
       v-for="post in posts"
@@ -15,14 +15,14 @@
         v-for="i in pagination.last"
         :key="i"
         @click= "getPosts(i)"
-        :disabled = "pagination.current === pagination.last"> {{i}}</button>
+        :disabled = "pagination.current === i"> {{i}}</button>
         
       <button
        @click="getPosts(pagination.current +1)"
        :disabled = "pagination.current === pagination.last">>></button>
 
     </div>
-  </div>
+  </main>
 
   
 </template>
@@ -67,14 +67,14 @@ export default {
 
 <style lang="scss" scoped>
 main{
-  padding: 30px 0px;
+  padding: 30px 120px;
   h1{
     margin-bottom: 25px;
   }
   button{
     background-color: gray;
-    width: 10px;
-    height: 10px;
+    width: 30px;
+    height: 30px;
   }
 }
 

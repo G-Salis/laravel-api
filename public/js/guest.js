@@ -2081,10 +2081,10 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     troncateTex: function troncateTex() {
-      return post.content.substr(0, 50) + '...';
+      return this.post.content.substr(0, 50) + '...';
     },
     formatData: function formatData() {
-      var d = new Data(this.post.created_id);
+      var d = new Date(this.post.created_at);
       var day = d.getDate();
       var month = d.getMonth() + 1;
       var year = d.getFullYear();
@@ -2107,7 +2107,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "main[data-v-4ac4d2f8] {\n  padding: 30px 0px;\n}\nmain h1[data-v-4ac4d2f8] {\n  margin-bottom: 25px;\n}\nmain button[data-v-4ac4d2f8] {\n  background-color: gray;\n  width: 10px;\n  height: 10px;\n}", ""]);
+exports.push([module.i, "main[data-v-4ac4d2f8] {\n  padding: 30px 120px;\n}\nmain h1[data-v-4ac4d2f8] {\n  margin-bottom: 25px;\n}\nmain button[data-v-4ac4d2f8] {\n  background-color: gray;\n  width: 30px;\n  height: 30px;\n}", ""]);
 
 // exports
 
@@ -3399,8 +3399,7 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "div",
-    { staticClass: "container" },
+    "main",
     [
       _c("h1", [_vm._v("I Miei Post")]),
       _vm._v(" "),
@@ -3430,9 +3429,7 @@ var render = function () {
               "button",
               {
                 key: i,
-                attrs: {
-                  disabled: _vm.pagination.current === _vm.pagination.last,
-                },
+                attrs: { disabled: _vm.pagination.current === i },
                 on: {
                   click: function ($event) {
                     return _vm.getPosts(i)
@@ -3560,9 +3557,9 @@ var render = function () {
   return _c("article", [
     _c("h3", [_vm._v(_vm._s(_vm.post.title))]),
     _vm._v(" "),
-    _c("p", { staticClass: "data" }, [_vm._v(_vm._s(_vm.post.created_id))]),
+    _c("p", { staticClass: "data" }, [_vm._v(_vm._s(_vm.formatData))]),
     _vm._v(" "),
-    _c("p", { staticClass: "text" }, [_vm._v(_vm._s(_vm.post.content))]),
+    _c("p", { staticClass: "text" }, [_vm._v(_vm._s(_vm.troncateTex))]),
   ])
 }
 var staticRenderFns = []
@@ -16196,7 +16193,7 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\Boolean\Laravel\laravel-many-to-many - Copia\resources\js\guest.js */"./resources/js/guest.js");
+module.exports = __webpack_require__(/*! D:\Boolean\Laravel\laravel-api\resources\js\guest.js */"./resources/js/guest.js");
 
 
 /***/ })
