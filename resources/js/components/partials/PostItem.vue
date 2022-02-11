@@ -1,13 +1,15 @@
 <template>
   <article>
-    <h3>{{post.title}}</h3>
+    <h3>
+      <router-link :to="{name: 'detail', params: {slug: post.slug}}">{{post.title}}</router-link>
+    </h3>
     <p v-if="post.category">{{post.category.name}}</p>
 
     <div class="category" v-if="post.tags">
       <span
       class="tags" 
-      v-for="tag in post.tags"
-      :key="tag${index}">{{tag.name}}</span>
+      v-for="(tag, index) in post.tags"
+      :key="`tag${index}`">{{tag.name}}</span>
     </div>
 
     <p class="data">{{formatData}}</p>
@@ -57,6 +59,6 @@
     .text{
       padding: 5px 0px;
     }
-  }
+  
 
 </style>

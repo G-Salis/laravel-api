@@ -1,6 +1,7 @@
 <template>
   <main>
     <h1>I Miei Post</h1>
+    
     <div v-if="posts">
 
       <PostItem
