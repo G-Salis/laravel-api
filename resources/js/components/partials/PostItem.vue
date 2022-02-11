@@ -1,6 +1,15 @@
 <template>
   <article>
     <h3>{{post.title}}</h3>
+    <p v-if="post.category">{{post.category.name}}</p>
+
+    <div class="category" v-if="post.tags">
+      <span
+      class="tags" 
+      v-for="tag in post.tags"
+      :key="tag${index}">{{tag.name}}</span>
+    </div>
+
     <p class="data">{{formatData}}</p>
     <p class="text">{{troncateTex}}</p>
   </article>
@@ -31,6 +40,16 @@
 <style lang="scss" scoped>
   article{
     margin-bottom: 15px;
+    .category{
+      margin: 5px 0px;
+      color: lightsalmon;
+      .tags{
+        padding: 5px;
+        margin-right: 5px;
+        background-color: lightblue;
+}
+      }
+    }
     .data{
       font-size: 12px;
       font-style: italic;

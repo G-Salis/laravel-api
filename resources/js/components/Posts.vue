@@ -1,26 +1,32 @@
 <template>
   <main>
     <h1>I Miei Post</h1>
-    <PostItem
-      v-for="post in posts"
-      :key="post.id"
-      :post="post"
-     />
-    <div class="navigation">
-      <button
-      @click="getPosts(pagination.current - 1)"
-      :disabled = "pagination.current === 1"> << </button>
+    <div v-if="posts">
 
-       <button
-        v-for="i in pagination.last"
-        :key="i"
-        @click= "getPosts(i)"
-        :disabled = "pagination.current === i"> {{i}}</button>
-        
-      <button
-       @click="getPosts(pagination.current +1)"
-       :disabled = "pagination.current === pagination.last">>></button>
+      <PostItem
+        v-for="post in posts"
+        :key="post.id"
+        :post="post"
+      />
 
+      <div class="navigation">
+        <button
+        @click="getPosts(pagination.current - 1)"
+        :disabled = "pagination.current === 1"> << </button>
+
+        <button
+          v-for="i in pagination.last"
+          :key="i"
+          @click= "getPosts(i)"
+          :disabled = "pagination.current === i"> {{i}}</button>
+          
+        <button
+        @click="getPosts(pagination.current +1)"
+        :disabled = "pagination.current === pagination.last">>></button>
+      </div>
+    </div>
+    <div v-else>
+      <h3>LOADING...</h3>
     </div>
   </main>
 

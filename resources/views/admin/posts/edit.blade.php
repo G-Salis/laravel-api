@@ -40,7 +40,7 @@
         <label for="category_id" class="form-label">Inserisci una categoria</label>
         
         <select class="form-control" aria-label="Default select example" name="category_id" id="category_id">
-          <option selected>Selezionare una categoria</option>
+          <option value="">Selezionare una categoria</option>
           
           @foreach ($categories as $category)
             <option value="{{$category->id}}">{{$category->name}}</option>
